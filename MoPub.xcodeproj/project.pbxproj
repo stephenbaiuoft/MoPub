@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4FB7984A3E1CAA1F9F4571CE /* Pods_MoPubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561942C8AB68545A1248BF /* Pods_MoPubUITests.framework */; };
+		DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC748B541F7457C900CE73EF /* GoogleService-Info.plist */; };
 		DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21571F7449B500BC08EC /* AppDelegate.swift */; };
-		DCFB215A1F7449B500BC08EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21591F7449B500BC08EC /* ViewController.swift */; };
+		DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21591F7449B500BC08EC /* MainViewController.swift */; };
 		DCFB215D1F7449B500BC08EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFB215B1F7449B500BC08EC /* Main.storyboard */; };
 		DCFB21601F7449B500BC08EC /* MoPub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCFB215E1F7449B500BC08EC /* MoPub.xcdatamodeld */; };
 		DCFB21621F7449B500BC08EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFB21611F7449B500BC08EC /* Assets.xcassets */; };
@@ -44,9 +45,10 @@
 		8BA11CD36BEF8873E9591C57 /* Pods-MoPub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoPub/Pods-MoPub.debug.xcconfig"; sourceTree = "<group>"; };
 		B833FB82CDD5A88043518430 /* Pods-MoPubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoPubUITests/Pods-MoPubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E6139A20CAFE7A53379ED7 /* Pods_MoPubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoPubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC748B541F7457C900CE73EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DCFB21541F7449B500BC08EC /* MoPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoPub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFB21571F7449B500BC08EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCFB21591F7449B500BC08EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCFB21591F7449B500BC08EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DCFB215C1F7449B500BC08EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCFB215F1F7449B500BC08EC /* MoPub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoPub.xcdatamodel; sourceTree = "<group>"; };
 		DCFB21611F7449B500BC08EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 		DCFB21761F7449B500BC08EC /* MoPubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoPubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFB217A1F7449B500BC08EC /* MoPubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoPubUITests.swift; sourceTree = "<group>"; };
 		DCFB217C1F7449B500BC08EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCFB21881F744A3F00BC08EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E18673604B6E9F67593F1384 /* Pods-MoPubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoPubTests/Pods-MoPubTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9561942C8AB68545A1248BF /* Pods_MoPubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoPubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFA662CC5E496EC618F4E08 /* Pods-MoPub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPub.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoPub/Pods-MoPub.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,14 +141,14 @@
 		DCFB21561F7449B500BC08EC /* MoPub */ = {
 			isa = PBXGroup;
 			children = (
+				DC748B541F7457C900CE73EF /* GoogleService-Info.plist */,
 				DCFB21571F7449B500BC08EC /* AppDelegate.swift */,
-				DCFB21591F7449B500BC08EC /* ViewController.swift */,
+				DCFB21591F7449B500BC08EC /* MainViewController.swift */,
 				DCFB215B1F7449B500BC08EC /* Main.storyboard */,
 				DCFB21611F7449B500BC08EC /* Assets.xcassets */,
 				DCFB21631F7449B500BC08EC /* LaunchScreen.storyboard */,
 				DCFB21661F7449B500BC08EC /* Info.plist */,
 				DCFB215E1F7449B500BC08EC /* MoPub.xcdatamodeld */,
-				DCFB21881F744A3F00BC08EC /* GoogleService-Info.plist */,
 			);
 			path = MoPub;
 			sourceTree = "<group>";
@@ -287,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFB21651F7449B500BC08EC /* LaunchScreen.storyboard in Resources */,
+				DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */,
 				DCFB21621F7449B500BC08EC /* Assets.xcassets in Resources */,
 				DCFB215D1F7449B500BC08EC /* Main.storyboard in Resources */,
 			);
@@ -433,13 +435,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MoPub/Pods-MoPub-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -490,7 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCFB215A1F7449B500BC08EC /* ViewController.swift in Sources */,
+				DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */,
 				DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */,
 				DCFB21601F7449B500BC08EC /* MoPub.xcdatamodeld in Sources */,
 			);
