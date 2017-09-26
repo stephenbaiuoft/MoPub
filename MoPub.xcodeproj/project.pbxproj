@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4FB7984A3E1CAA1F9F4571CE /* Pods_MoPubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561942C8AB68545A1248BF /* Pods_MoPubUITests.framework */; };
 		DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC748B541F7457C900CE73EF /* GoogleService-Info.plist */; };
+		DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC748B5B1F745D2C00CE73EF /* Constant.swift */; };
 		DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21571F7449B500BC08EC /* AppDelegate.swift */; };
 		DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21591F7449B500BC08EC /* MainViewController.swift */; };
 		DCFB215D1F7449B500BC08EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFB215B1F7449B500BC08EC /* Main.storyboard */; };
@@ -46,6 +47,14 @@
 		B833FB82CDD5A88043518430 /* Pods-MoPubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoPubUITests/Pods-MoPubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E6139A20CAFE7A53379ED7 /* Pods_MoPubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoPubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC748B541F7457C900CE73EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC748B5B1F745D2C00CE73EF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DCEB54C51F79EFDD005FFABA /* JSQDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQDelegates.swift; sourceTree = "<group>"; };
+		DCEB54C61F79EFDD005FFABA /* JSQMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMethods.swift; sourceTree = "<group>"; };
+		DCEB54C71F79EFDD005FFABA /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		DCEB54C81F79EFDD005FFABA /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
+		DCEB54C91F79EFE9005FFABA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
+		DCEB54CC1F79F02F005FFABA /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		DCFB21541F7449B500BC08EC /* MoPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoPub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFB21571F7449B500BC08EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCFB21591F7449B500BC08EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +125,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC748B561F745CD500CE73EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB54C31F79EFB2005FFABA /* Chat */,
+				DCFB21591F7449B500BC08EC /* MainViewController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC748B571F745CDE00CE73EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB54C41F79EFC7005FFABA /* Chat View Controller */,
+				DCEB54C91F79EFE9005FFABA /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DC748B581F745CE600CE73EF /* Class Constant */ = {
+			isa = PBXGroup;
+			children = (
+				DC748B5B1F745D2C00CE73EF /* Constant.swift */,
+			);
+			path = "Class Constant";
+			sourceTree = "<group>";
+		};
+		DC748B5D1F745D7600CE73EF /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				DCFB21611F7449B500BC08EC /* Assets.xcassets */,
+				DCFB21631F7449B500BC08EC /* LaunchScreen.storyboard */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		DCEB54C31F79EFB2005FFABA /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		DCEB54C41F79EFC7005FFABA /* Chat View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB54C81F79EFDD005FFABA /* ChannelListViewController.swift */,
+				DCEB54C71F79EFDD005FFABA /* ChatViewController.swift */,
+				DCEB54C51F79EFDD005FFABA /* JSQDelegates.swift */,
+				DCEB54C61F79EFDD005FFABA /* JSQMethods.swift */,
+			);
+			path = "Chat View Controller";
+			sourceTree = "<group>";
+		};
+		DCEB54CB1F79F027005FFABA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB54CC1F79F02F005FFABA /* UIImage+Gif.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		DCFB214B1F7449B500BC08EC = {
 			isa = PBXGroup;
 			children = (
@@ -141,13 +212,15 @@
 		DCFB21561F7449B500BC08EC /* MoPub */ = {
 			isa = PBXGroup;
 			children = (
-				DC748B541F7457C900CE73EF /* GoogleService-Info.plist */,
+				DCEB54CB1F79F027005FFABA /* Supporting Files */,
+				DC748B5D1F745D7600CE73EF /* Asset */,
+				DC748B581F745CE600CE73EF /* Class Constant */,
+				DC748B571F745CDE00CE73EF /* Controller */,
+				DC748B561F745CD500CE73EF /* Model */,
 				DCFB21571F7449B500BC08EC /* AppDelegate.swift */,
-				DCFB21591F7449B500BC08EC /* MainViewController.swift */,
-				DCFB215B1F7449B500BC08EC /* Main.storyboard */,
-				DCFB21611F7449B500BC08EC /* Assets.xcassets */,
-				DCFB21631F7449B500BC08EC /* LaunchScreen.storyboard */,
+				DC748B541F7457C900CE73EF /* GoogleService-Info.plist */,
 				DCFB21661F7449B500BC08EC /* Info.plist */,
+				DCFB215B1F7449B500BC08EC /* Main.storyboard */,
 				DCFB215E1F7449B500BC08EC /* MoPub.xcdatamodeld */,
 			);
 			path = MoPub;
@@ -339,6 +412,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -352,6 +427,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -494,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */,
+				DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */,
 				DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */,
 				DCFB21601F7449B500BC08EC /* MoPub.xcdatamodeld in Sources */,
 			);
