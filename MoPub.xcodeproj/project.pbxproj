@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FB7984A3E1CAA1F9F4571CE /* Pods_MoPubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561942C8AB68545A1248BF /* Pods_MoPubUITests.framework */; };
+		DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CA71F7A97D90007B90A /* MapViewController.swift */; };
 		DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC748B541F7457C900CE73EF /* GoogleService-Info.plist */; };
 		DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC748B5B1F745D2C00CE73EF /* Constant.swift */; };
 		DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */; };
@@ -47,6 +48,7 @@
 		8BA11CD36BEF8873E9591C57 /* Pods-MoPub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoPub/Pods-MoPub.debug.xcconfig"; sourceTree = "<group>"; };
 		B833FB82CDD5A88043518430 /* Pods-MoPubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoPubUITests/Pods-MoPubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E6139A20CAFE7A53379ED7 /* Pods_MoPubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoPubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC208CA71F7A97D90007B90A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DC748B541F7457C900CE73EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC748B5B1F745D2C00CE73EF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DCEB54C51F79EFDD005FFABA /* JSQDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQDelegates.swift; sourceTree = "<group>"; };
@@ -138,18 +140,18 @@
 			isa = PBXGroup;
 			children = (
 				DCEB54CE1F7A118D005FFABA /* EventFormView Controller */,
-				DCEB54CD1F7A0348005FFABA /* MainMapView Controller */,
+				DCEB54CD1F7A0348005FFABA /* MapView Controller */,
 				DCEB54C41F79EFC7005FFABA /* Chat View Controller */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		DC748B581F745CE600CE73EF /* Class Constant */ = {
+		DC748B581F745CE600CE73EF /* Constant */ = {
 			isa = PBXGroup;
 			children = (
 				DC748B5B1F745D2C00CE73EF /* Constant.swift */,
 			);
-			path = "Class Constant";
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		DC748B5D1F745D7600CE73EF /* Asset */ = {
@@ -188,11 +190,12 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DCEB54CD1F7A0348005FFABA /* MainMapView Controller */ = {
+		DCEB54CD1F7A0348005FFABA /* MapView Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DC208CA71F7A97D90007B90A /* MapViewController.swift */,
 			);
-			path = "MainMapView Controller";
+			path = "MapView Controller";
 			sourceTree = "<group>";
 		};
 		DCEB54CE1F7A118D005FFABA /* EventFormView Controller */ = {
@@ -229,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				DC748B5D1F745D7600CE73EF /* Asset */,
-				DC748B581F745CE600CE73EF /* Class Constant */,
+				DC748B581F745CE600CE73EF /* Constant */,
 				DC748B571F745CDE00CE73EF /* Controller */,
 				DC748B561F745CD500CE73EF /* Model */,
 				DCFB21591F7449B500BC08EC /* MainViewController.swift */,
@@ -588,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */,
+				DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */,
 				DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */,
 				DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */,
 				DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */,
@@ -761,6 +765,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JV3LNY3KQ7;
 				INFOPLIST_FILE = MoPub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Bai.MoPub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -777,6 +782,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JV3LNY3KQ7;
 				INFOPLIST_FILE = MoPub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Bai.MoPub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
