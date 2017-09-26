@@ -10,6 +10,7 @@
 		4FB7984A3E1CAA1F9F4571CE /* Pods_MoPubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561942C8AB68545A1248BF /* Pods_MoPubUITests.framework */; };
 		DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CA71F7A97D90007B90A /* MapViewController.swift */; };
 		DC208CAA1F7AAF7D0007B90A /* LocationSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CA91F7AAF7D0007B90A /* LocationSearchTableVC.swift */; };
+		DC208CAC1F7B04EC0007B90A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CAB1F7B04EC0007B90A /* Channel.swift */; };
 		DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC748B541F7457C900CE73EF /* GoogleService-Info.plist */; };
 		DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC748B5B1F745D2C00CE73EF /* Constant.swift */; };
 		DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */; };
@@ -51,6 +52,7 @@
 		D0E6139A20CAFE7A53379ED7 /* Pods_MoPubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoPubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC208CA71F7A97D90007B90A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DC208CA91F7AAF7D0007B90A /* LocationSearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableVC.swift; sourceTree = "<group>"; };
+		DC208CAB1F7B04EC0007B90A /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		DC748B541F7457C900CE73EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC748B5B1F745D2C00CE73EF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DCEB54C51F79EFDD005FFABA /* JSQDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQDelegates.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */,
+				DC208CAB1F7B04EC0007B90A /* Channel.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC208CAC1F7B04EC0007B90A /* Channel.swift in Sources */,
 				DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */,
 				DC208CAA1F7AAF7D0007B90A /* LocationSearchTableVC.swift in Sources */,
 				DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */,

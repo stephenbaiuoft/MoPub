@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark)
+}
+
 class HostEventViewController: UIViewController {
     
     // MARK: IBOutlets
@@ -25,8 +29,10 @@ class HostEventViewController: UIViewController {
     
     // MARK: Properties
     let locationManager = CLLocationManager()
+    var locationSearchTable: LocationSearchTableVC!
     var searchBar: UISearchBar!
     var resultSearchController:UISearchController? = nil
+    var selectedPin:MKPlacemark? = nil
     
     
     override func viewDidLoad() {
@@ -37,11 +43,12 @@ class HostEventViewController: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-        print("requesting location when in usage?")
         locationManager.requestLocation()
         
         // Set up resultSearchController's tableVC
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableVC") as! LocationSearchTableVC
+        locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableVC") as! LocationSearchTableVC
+        locationSearchTable.handleMapSearchDelegate = self
+        
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         // The locationSearchTable will also serve as the searchResultsUpdater delegate.
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -91,62 +98,6 @@ extension HostEventViewController: UIGestureRecognizerDelegate {
     }
 }
 
-// UISearchBarDelegates
-extension HostEventViewController: UISearchBarDelegate {
-    
-    // each time the search text changes we want to cancel any current download and start a new one
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-//        // cancel the last task
-//        if let task = searchTask {
-//            task.cancel()
-//        }
-//
-//        // if the text is empty we are done
-//        if searchText == "" {
-//            movies = [TMDBMovie]()
-//            movieTableView?.reloadData()
-//            return
-//        }
-//
-//        // new search
-//        searchTask = TMDBClient.sharedInstance().getMoviesForSearchString(searchText) { (movies, error) in
-//            self.searchTask = nil
-//            if let movies = movies {
-//                self.movies = movies
-//                performUIUpdatesOnMain {
-//                    self.movieTableView!.reloadData()
-//                }
-//            }
-//        }
-        
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //toggleView(hideTableView: true)
-        searchBar.resignFirstResponder()
-    }
-}
-
-// Tableview Delegates
-extension HostEventViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let CellReuseId = "LocationID"
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellReuseId) as UITableViewCell!
-        
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-    }
-}
 
 // CLLocationManagerDelegate Methods
 extension HostEventViewController : CLLocationManagerDelegate {
@@ -167,5 +118,26 @@ extension HostEventViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error)")
+    }
+}
+
+// Handling drop in pin
+extension HostEventViewController: HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark){
+        // cache the pin
+        selectedPin = placemark
+        // clear existing pins
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        annotation.subtitle =  placemark.name
+        
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegionMake(placemark.coordinate, span)
+        mapView.setRegion(region, animated: true)
+        
+        // Mark: creating in FireBase
     }
 }
