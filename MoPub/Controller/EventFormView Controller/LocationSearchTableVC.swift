@@ -93,3 +93,12 @@ class LocationSearchTableVC: UITableViewController {
     */
 
 }
+
+extension LocationSearchTableVC : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    }
+}

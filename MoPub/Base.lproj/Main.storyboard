@@ -162,21 +162,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Keyword" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-Kb-2IT" userLabel="Keyword">
-                                <rect key="frame" x="192.5" y="365" width="172.5" height="30"/>
+                                <rect key="frame" x="192.5" y="359" width="172.5" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Party Size" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKa-RW-6id">
-                                <rect key="frame" x="10" y="365" width="172.5" height="30"/>
+                                <rect key="frame" x="10" y="359" width="172.5" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKl-1j-lAE">
-                                <rect key="frame" x="0.0" y="120" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="lbY-64-iOc"/>
                                 </constraints>
@@ -196,7 +196,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Event Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnD-4K-qPK" userLabel="Event Title">
-                                <rect key="frame" x="10" y="325" width="355" height="30"/>
+                                <rect key="frame" x="10" y="319" width="355" height="30"/>
                                 <color key="backgroundColor" red="0.31986136279999999" green="0.85732736909999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uG4-MF-SiH"/>
@@ -206,18 +206,11 @@
                                 <textInputTraits key="textInputTraits" textContentType="organization-title"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Details about your event" translatesAutoresizingMaskIntoConstraints="NO" id="ERH-l3-ZtE">
-                                <rect key="frame" x="10" y="400" width="355" height="212"/>
+                                <rect key="frame" x="10" y="394" width="355" height="218"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vHM-XC-hUD">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ymM-J3-fvb" id="Gog-cF-J5r"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -225,13 +218,11 @@
                             <constraint firstItem="BP4-25-Kzs" firstAttribute="trailing" secondItem="ERH-l3-ZtE" secondAttribute="trailing" constant="10" id="0tm-ha-4pp"/>
                             <constraint firstItem="qnD-4K-qPK" firstAttribute="leading" secondItem="BP4-25-Kzs" secondAttribute="leading" constant="10" id="37f-kr-3jM"/>
                             <constraint firstItem="BP4-25-Kzs" firstAttribute="trailing" secondItem="cKl-1j-lAE" secondAttribute="trailing" id="3Kl-zZ-GkI"/>
-                            <constraint firstItem="vHM-XC-hUD" firstAttribute="trailing" secondItem="BP4-25-Kzs" secondAttribute="trailing" id="4dn-eL-SE7"/>
-                            <constraint firstItem="cKl-1j-lAE" firstAttribute="top" secondItem="vHM-XC-hUD" secondAttribute="bottom" id="CiJ-yy-dFM"/>
+                            <constraint firstItem="cKl-1j-lAE" firstAttribute="top" secondItem="BP4-25-Kzs" secondAttribute="top" constant="50" id="60z-Jf-EUT"/>
                             <constraint firstItem="BP4-25-Kzs" firstAttribute="bottom" secondItem="57W-eZ-sCV" secondAttribute="bottom" constant="10" id="ERa-J7-tlo"/>
                             <constraint firstItem="7n5-Kb-2IT" firstAttribute="leading" secondItem="QKa-RW-6id" secondAttribute="trailing" constant="10" id="IVR-br-X9z"/>
                             <constraint firstItem="7n5-Kb-2IT" firstAttribute="top" secondItem="qnD-4K-qPK" secondAttribute="bottom" constant="10" id="JTP-pH-SHK"/>
                             <constraint firstItem="BP4-25-Kzs" firstAttribute="trailing" secondItem="7n5-Kb-2IT" secondAttribute="trailing" constant="10" id="Pie-Mu-B5M"/>
-                            <constraint firstItem="vHM-XC-hUD" firstAttribute="top" secondItem="BP4-25-Kzs" secondAttribute="top" id="ZEv-mW-jKh"/>
                             <constraint firstItem="57W-eZ-sCV" firstAttribute="top" secondItem="ERH-l3-ZtE" secondAttribute="bottom" constant="5" id="ica-nA-dQC"/>
                             <constraint firstItem="cKl-1j-lAE" firstAttribute="leading" secondItem="BP4-25-Kzs" secondAttribute="leading" id="lbn-me-eJY"/>
                             <constraint firstItem="57W-eZ-sCV" firstAttribute="leading" secondItem="BP4-25-Kzs" secondAttribute="leading" constant="10" id="lyW-tI-gb3"/>
@@ -241,9 +232,9 @@
                             <constraint firstItem="QKa-RW-6id" firstAttribute="top" secondItem="qnD-4K-qPK" secondAttribute="bottom" constant="10" id="qIv-pX-Tut"/>
                             <constraint firstItem="ERH-l3-ZtE" firstAttribute="top" secondItem="7n5-Kb-2IT" secondAttribute="bottom" constant="5" id="qbU-i4-zVv"/>
                             <constraint firstItem="BP4-25-Kzs" firstAttribute="trailing" secondItem="57W-eZ-sCV" secondAttribute="trailing" constant="10" id="sy9-fZ-aEW"/>
+                            <constraint firstItem="qnD-4K-qPK" firstAttribute="top" secondItem="cKl-1j-lAE" secondAttribute="bottom" constant="5" id="tEV-qV-rxj"/>
                             <constraint firstItem="BP4-25-Kzs" firstAttribute="trailing" secondItem="qnD-4K-qPK" secondAttribute="trailing" constant="10" id="tT7-9S-oHv"/>
                             <constraint firstItem="QKa-RW-6id" firstAttribute="height" secondItem="qnD-4K-qPK" secondAttribute="height" id="ugU-wx-1xq"/>
-                            <constraint firstItem="vHM-XC-hUD" firstAttribute="leading" secondItem="BP4-25-Kzs" secondAttribute="leading" id="yWd-cp-8uV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BP4-25-Kzs"/>
                     </view>
@@ -254,7 +245,6 @@
                         <outlet property="hostButton" destination="57W-eZ-sCV" id="JMP-i2-E8D"/>
                         <outlet property="mapView" destination="cKl-1j-lAE" id="cg3-AW-b2L"/>
                         <outlet property="partySize" destination="QKa-RW-6id" id="XYz-lq-hjO"/>
-                        <outlet property="searchBar" destination="vHM-XC-hUD" id="WOW-7z-gvv"/>
                         <outlet property="searchDisplayController" destination="ZGn-zA-4qi" id="Qay-5r-dP9"/>
                     </connections>
                 </viewController>
@@ -268,7 +258,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="366" y="-896"/>
+            <point key="canvasLocation" x="365.60000000000002" y="-896.40179910044981"/>
         </scene>
         <!--Location Search TableVC-->
         <scene sceneID="8MM-lk-DtR">

@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoPub/Controller/EventFormView Controller/HostEventViewController.swift"
-            timestampString = "528133715.951824"
+            timestampString = "528138044.223334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoPub/Controller/EventFormView Controller/HostEventViewController.swift"
-            timestampString = "528133715.952568"
+            timestampString = "528138044.225264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "locationManager(_:didFailWithError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoPub/Controller/EventFormView Controller/HostEventViewController.swift"
-            timestampString = "528133715.95317"
+            timestampString = "528138044.226144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"

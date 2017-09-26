@@ -15,8 +15,7 @@ class HostEventViewController: UIViewController {
     
     // Location Search!
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var placeHolderView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var partySize: UITextField!
@@ -26,6 +25,7 @@ class HostEventViewController: UIViewController {
     
     // MARK: Properties
     let locationManager = CLLocationManager()
+    var searchBar: UISearchBar!
     var resultSearchController:UISearchController? = nil
     
     override func viewDidLoad() {
@@ -39,12 +39,41 @@ class HostEventViewController: UIViewController {
         print("requesting location when in usage?")
         locationManager.requestLocation()
         
+        // Set up resultSearchController's tableVC
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableVC") as! LocationSearchTableVC
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        // The locationSearchTable will also serve as the searchResultsUpdater delegate.
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        
+        // Set up searchBar
+        searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        
+        view.addSubview(searchBar)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint(item: searchBar, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0).isActive = true
+        
+        NSLayoutConstraint(item: searchBar, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0.0).isActive = true
+        
+        // Please Use Anchor in this case instead of NSLayoutConstraint!!
+        let margins = view.layoutMarginsGuide
+        searchBar.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        
+    
         // configure tap recognizer
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         tapRecognizer.numberOfTapsRequired = 1
         tapRecognizer.delegate = self
         view.addGestureRecognizer(tapRecognizer)
         
+        // Delegate Set up
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     @objc func handleSingleTap(_ recognizer: UITapGestureRecognizer) {
