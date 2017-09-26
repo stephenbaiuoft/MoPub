@@ -16,7 +16,6 @@ class HostEventViewController: UIViewController {
     // Location Search!
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var eventTitle: UITextField!
@@ -27,6 +26,7 @@ class HostEventViewController: UIViewController {
     
     // MARK: Properties
     let locationManager = CLLocationManager()
+    var resultSearchController:UISearchController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +55,6 @@ class HostEventViewController: UIViewController {
         
     }
     
-    func toggleView( hideTableView: Bool) {
-        tableView.isHidden = hideTableView
-        mapView.isHidden = !hideTableView
-    }
 }
 
 // Gesture Delegates
@@ -138,7 +134,7 @@ extension HostEventViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             print("location:: \(location)")
-            let span = MKCoordinateSpanMake(0.1, 0.1)
+            let span = MKCoordinateSpanMake(0.08, 0.08)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.setRegion(region, animated: true)
         }
