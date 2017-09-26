@@ -28,6 +28,7 @@ class HostEventViewController: UIViewController {
     var searchBar: UISearchBar!
     var resultSearchController:UISearchController? = nil
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,26 +48,22 @@ class HostEventViewController: UIViewController {
         
         // Set up searchBar
         searchBar = resultSearchController!.searchBar
+        view.addSubview(searchBar)
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
-        
-        view.addSubview(searchBar)
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint(item: searchBar, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0).isActive = true
-        
-        NSLayoutConstraint(item: searchBar, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0.0).isActive = true
-        
-        // Please Use Anchor in this case instead of NSLayoutConstraint!!
-        let margins = view.layoutMarginsGuide
-        searchBar.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-        
+
+        navigationItem.titleView = searchBar
+      
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
     
+        locationSearchTable.mapView = mapView
         // configure tap recognizer
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
-        tapRecognizer.numberOfTapsRequired = 1
-        tapRecognizer.delegate = self
-        view.addGestureRecognizer(tapRecognizer)
+//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
+//        tapRecognizer.numberOfTapsRequired = 1
+//        tapRecognizer.delegate = self
+//        view.addGestureRecognizer(tapRecognizer)
         
         // Delegate Set up
         
@@ -89,7 +86,6 @@ class HostEventViewController: UIViewController {
 // Gesture Delegates
 extension HostEventViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        
         //toggleView(hideTableView: false)
         return searchBar.isFirstResponder
     }
