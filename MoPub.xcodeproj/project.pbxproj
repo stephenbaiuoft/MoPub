@@ -10,6 +10,7 @@
 		4FB7984A3E1CAA1F9F4571CE /* Pods_MoPubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561942C8AB68545A1248BF /* Pods_MoPubUITests.framework */; };
 		DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC748B541F7457C900CE73EF /* GoogleService-Info.plist */; };
 		DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC748B5B1F745D2C00CE73EF /* Constant.swift */; };
+		DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */; };
 		DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21571F7449B500BC08EC /* AppDelegate.swift */; };
 		DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21591F7449B500BC08EC /* MainViewController.swift */; };
 		DCFB215D1F7449B500BC08EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFB215B1F7449B500BC08EC /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		DCEB54C81F79EFDD005FFABA /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		DCEB54CC1F79F02F005FFABA /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEventViewController.swift; sourceTree = "<group>"; };
 		DCFB21541F7449B500BC08EC /* MoPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoPub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFB21571F7449B500BC08EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCFB21591F7449B500BC08EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		DC748B571F745CDE00CE73EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DCEB54CE1F7A118D005FFABA /* EventFormView Controller */,
 				DCEB54CD1F7A0348005FFABA /* MainMapView Controller */,
 				DCEB54C41F79EFC7005FFABA /* Chat View Controller */,
 			);
@@ -190,6 +193,14 @@
 			children = (
 			);
 			path = "MainMapView Controller";
+			sourceTree = "<group>";
+		};
+		DCEB54CE1F7A118D005FFABA /* EventFormView Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */,
+			);
+			path = "EventFormView Controller";
 			sourceTree = "<group>";
 		};
 		DCFB214B1F7449B500BC08EC = {
@@ -577,6 +588,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */,
+				DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */,
 				DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */,
 				DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */,
 				DCFB21601F7449B500BC08EC /* MoPub.xcdatamodeld in Sources */,

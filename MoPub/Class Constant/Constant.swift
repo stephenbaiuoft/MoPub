@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Constant {
+    struct VC {
+        static let segueToHostEvent = "segueToHostEvent"
+    }
+}
