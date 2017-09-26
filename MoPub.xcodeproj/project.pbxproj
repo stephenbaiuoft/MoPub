@@ -52,7 +52,6 @@
 		DCEB54C61F79EFDD005FFABA /* JSQMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMethods.swift; sourceTree = "<group>"; };
 		DCEB54C71F79EFDD005FFABA /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DCEB54C81F79EFDD005FFABA /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
-		DCEB54C91F79EFE9005FFABA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		DCEB54CC1F79F02F005FFABA /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		DCFB21541F7449B500BC08EC /* MoPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoPub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				DCEB54C31F79EFB2005FFABA /* Chat */,
-				DCFB21591F7449B500BC08EC /* MainViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,8 +135,8 @@
 		DC748B571F745CDE00CE73EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DCEB54CD1F7A0348005FFABA /* MainMapView Controller */,
 				DCEB54C41F79EFC7005FFABA /* Chat View Controller */,
-				DCEB54C91F79EFE9005FFABA /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +185,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DCEB54CD1F7A0348005FFABA /* MainMapView Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "MainMapView Controller";
+			sourceTree = "<group>";
+		};
 		DCFB214B1F7449B500BC08EC = {
 			isa = PBXGroup;
 			children = (
@@ -212,14 +217,15 @@
 		DCFB21561F7449B500BC08EC /* MoPub */ = {
 			isa = PBXGroup;
 			children = (
-				DCEB54CB1F79F027005FFABA /* Supporting Files */,
 				DC748B5D1F745D7600CE73EF /* Asset */,
 				DC748B581F745CE600CE73EF /* Class Constant */,
 				DC748B571F745CDE00CE73EF /* Controller */,
 				DC748B561F745CD500CE73EF /* Model */,
+				DCFB21591F7449B500BC08EC /* MainViewController.swift */,
 				DCFB21571F7449B500BC08EC /* AppDelegate.swift */,
 				DC748B541F7457C900CE73EF /* GoogleService-Info.plist */,
 				DCFB21661F7449B500BC08EC /* Info.plist */,
+				DCEB54CB1F79F027005FFABA /* Supporting Files */,
 				DCFB215B1F7449B500BC08EC /* Main.storyboard */,
 				DCFB215E1F7449B500BC08EC /* MoPub.xcdatamodeld */,
 			);
