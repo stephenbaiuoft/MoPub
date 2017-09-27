@@ -37,7 +37,10 @@ class LoginViewController: UIViewController  {
         subscribeToKeyboardNotifications()
         
         _authHandle = Auth.auth().addStateDidChangeListener({ (auth: Auth, user: User?) in
-            if let activeUser = user {
+            if self.user == nil {
+                
+            }
+            else if let activeUser = user   {
                 self.user = activeUser
                 print("Current User Exists, lets go to MapView")
                 
@@ -85,11 +88,11 @@ class LoginViewController: UIViewController  {
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue, sender: sender)
-//        let navVc = segue.destination as! UINavigationController // 1
-//        let channelVc = navVc.viewControllers.first as! ChannelListViewController // 2
-//
-//        channelVc.senderDisplayName = nameField?.text // 3
+        if segue.identifier == Constant.VC.segueToHostEvent{
+            let hostVC = segue.destination as! HostEventViewController // 1
+            hostVC.user = user!
+            print("hosting user is \(user!)")
+        }
     }
     
     

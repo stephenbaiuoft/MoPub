@@ -103,6 +103,11 @@ class HostEventViewController: UIViewController {
     @objc func handleSingleTap(_ recognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        //print back to mapVC
+        dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func hostEvent(_ sender: Any) {
         if selectedPin == nil {

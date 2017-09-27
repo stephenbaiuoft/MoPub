@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -241,7 +242,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BP4-25-Kzs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eVQ-kh-kFx"/>
+                    <navigationItem key="navigationItem" id="eVQ-kh-kFx">
+                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="AWf-00-ihD">
+                            <connections>
+                                <action selector="cancelPressed:" destination="ymM-J3-fvb" id="O7L-mY-8K4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="eventDescription" destination="ERH-l3-ZtE" id="xQ8-7h-Q98"/>
                         <outlet property="eventKeyWords" destination="7n5-Kb-2IT" id="qU5-h5-hxR"/>
@@ -262,7 +269,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="679" y="-1155"/>
+            <point key="canvasLocation" x="772" y="-1155"/>
         </scene>
         <!--Location Search TableVC-->
         <scene sceneID="8MM-lk-DtR">
@@ -335,7 +342,7 @@
                             <barButtonItem systemItem="refresh" id="ekv-g6-AbS" userLabel="Refresh"/>
                             <barButtonItem systemItem="add" id="1Jw-66-HTK" userLabel="Refresh">
                                 <connections>
-                                    <segue destination="L7U-nc-YgP" kind="presentation" identifier="segueToHostEvent" id="QpK-Dj-AyM"/>
+                                    <segue destination="L7U-nc-YgP" kind="show" identifier="segueToHostEvent" id="QpK-Dj-AyM"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
