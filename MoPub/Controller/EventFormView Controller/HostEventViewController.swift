@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
@@ -16,7 +17,6 @@ protocol HandleMapSearch {
 class HostEventViewController: UIViewController {
     
     // MARK: IBOutlets
-    
     // Location Search!
     
     @IBOutlet weak var placeHolderView: UIView!
@@ -26,6 +26,14 @@ class HostEventViewController: UIViewController {
     @IBOutlet weak var eventKeyWords: UITextField!
     @IBOutlet weak var eventDescription: UITextView!
     @IBOutlet weak var hostButton: UIButton!
+    
+    
+    // MARK: FireBase properties
+    // lazy ==> channelRef is instantiated ONLY when this property is accessed
+    var user: User? = nil
+    private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
+    // channelRefHandle: listen & observe
+    private var channelRefHandle: DatabaseHandle?
     
     // MARK: Properties
     let locationManager = CLLocationManager()
@@ -39,6 +47,12 @@ class HostEventViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        // textField
+        eventTitle.delegate = self
+        partySize.delegate = self
+        eventKeyWords.delegate = self
+        eventDescription.delegate = self
+        
         // location configuration
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -78,15 +92,59 @@ class HostEventViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        subscribeToKeyboardNotifications()
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
+    
     @objc func handleSingleTap(_ recognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
 
     @IBAction func hostEvent(_ sender: Any) {
+        if selectedPin == nil {
+            showAlert(alertMsg: Constant.Alert.location )
+        } else if eventTitle.text! == "" {
+            showAlert(alertMsg: Constant.Alert.title )
+        } else if ( partySize.text! == "" || Int(partySize.text!) == nil ){
+            showAlert(alertMsg: Constant.Alert.partySize)
+        } else if eventDescription.text!.characters.count > 255 {
+            showAlert(alertMsg: Constant.Alert.description)
+        }
+        // Successful case to Firebase!
+        else {
+            let newChannelRef = channelRef.childByAutoId()
+            let keywords = eventKeyWords.text!.split(separator: ",")
+            
+            let channelItem = [
+                Constant.FB.hostName: "host_bot1",
+                Constant.FB.latitude: selectedPin!.coordinate.latitude,
+                Constant.FB.longtitude: selectedPin!.coordinate.longitude,
+                Constant.FB.title: eventTitle.text!,
+                Constant.FB.keywords: keywords,
+                Constant.FB.description: eventDescription.text!,
+                Constant.FB.hostSize: Int(partySize.text!) ?? 10
+                ] as [String : Any]
+            
+            newChannelRef.setValue(channelItem)
+            
+            print("Going back to mapView Controller")
+            
+            dismiss(animated: true, completion: nil)
+        }
         
     }
+    
+    func showAlert(alertMsg: String) {
+        let alert = UIAlertController(title: alertMsg, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     
 }
 
@@ -138,6 +196,57 @@ extension HostEventViewController: HandleMapSearch {
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
         
-        // Mark: creating in FireBase
+    }
+    
+}
+
+// TextField Delegate Methods
+extension HostEventViewController: UITextFieldDelegate, UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        return true
+    }
+
+}
+
+// Keyboard show & hide methods
+extension HostEventViewController {
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        let keyboardHeight = getKeyboardHeight(notification)
+        if ( view.frame.origin.y == 0 && eventTitle.isEditing == false){
+            // shifting upwards, from 0 to keybaord height
+            view.frame.origin.y = -keyboardHeight
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification){
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 }

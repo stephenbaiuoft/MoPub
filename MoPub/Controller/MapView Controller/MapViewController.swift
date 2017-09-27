@@ -8,11 +8,19 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class MapViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: FireBase properties
+    var user: User? = nil
+    // Each channel is created Only by a annotation!
+    private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
+    // channelRefHandle: listen & observe
+    private var channelRefHandle: DatabaseHandle?
     
     // MARK: Properties
     let locationManager = CLLocationManager()
@@ -20,6 +28,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // Listen to FireBase updates
+        observeChannels()
         
         // location configuration
         locationManager.delegate = self
@@ -27,7 +37,51 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
+    
+    deinit {
+        // remove the observer!!! here
+        if let refHandle = channelRefHandle {
+            channelRef.removeObserver(withHandle: refHandle)
+        }
+    }
+    
+    // reloadAnnotation from the mapView
+    func reloadAnnotation( annotation: MKAnnotation ) {
+        
+        DispatchQueue.main.async {
+            // remove in case of duplicates: Will be fixed later on!
+            self.mapView.removeAnnotation(annotation)
+            self.mapView.addAnnotation(annotation)
+        }
+    }
+}
 
+// Firebase methods
+extension MapViewController {
+    func observeChannels() {
+        // Use the observe method to listen for new
+        // channels being written to the Firebase DB
+        channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in // 1
+            let channelData = snapshot.value as! Dictionary<String, AnyObject> // 2
+            let id = snapshot.key
+            if let longtitude = channelData[Constant.FB.longtitude] as! Double!,
+               let latitude = channelData[Constant.FB.latitude] as! Double!,
+                let title = channelData[Constant.FB.title] as! String!,
+                let subtitle = channelData[Constant.FB.hostName] as! String!
+                { // 3
+                let annotation = MKPointAnnotation()
+                annotation.coordinate.latitude = latitude
+                annotation.coordinate.longitude = longtitude
+                annotation.title = title
+                annotation.subtitle = subtitle
+                    
+                self.reloadAnnotation(annotation: annotation)
+                
+            } else {
+                print("Error! Could not decode channel data")
+            }
+        })
+    }
 }
 
 // CLLocationManagerDelegate Methods

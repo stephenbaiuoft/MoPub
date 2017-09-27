@@ -11,5 +11,25 @@ import Foundation
 class Constant {
     struct VC {
         static let segueToHostEvent = "segueToHostEvent"
+        static let segueToMapView = "segueToMapView"
+    }
+    
+    struct FB {
+        static let hostName = "hostName"
+        static let uniqueId = "uniqueId"
+        static let title = "title"
+        // keywords: bunch of keywords for this event
+        static let keywords = "keywords"
+        static let longtitude = "longtitude"
+        static let latitude = "latitude"
+        static let description = "description"
+        static let hostSize = "size"
+    }
+    
+    struct Alert {
+        static let location = "Please enter a valid location"
+        static let title = "Please enter a valid title"
+        static let partySize = "Please enter a valid number"
+        static let description = "Description is limited to 255 only"
     }
 }

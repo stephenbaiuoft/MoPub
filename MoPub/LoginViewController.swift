@@ -13,7 +13,7 @@ import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
 
 
-class MainViewController: UIViewController  {
+class LoginViewController: UIViewController  {
     
     // Outlet
     // Asynchronous Login
@@ -34,11 +34,14 @@ class MainViewController: UIViewController  {
     // MARK: View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
         
         _authHandle = Auth.auth().addStateDidChangeListener({ (auth: Auth, user: User?) in
             if let activeUser = user {
                 self.user = activeUser
                 print("Current User Exists, lets go to MapView")
+                
+                self.performSegue(withIdentifier: Constant.VC.segueToMapView, sender: self)
             }
             else {
                 // sign in
@@ -49,6 +52,8 @@ class MainViewController: UIViewController  {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+        
         // remove the listener
         Auth.auth().removeStateDidChangeListener(_authHandle)
         
@@ -73,6 +78,7 @@ class MainViewController: UIViewController  {
                 
                 // go to Segue
                 print("Going to MapView Segue")
+                self.performSegue(withIdentifier: Constant.VC.segueToMapView, sender: self)
             }
         }
     }
@@ -90,7 +96,7 @@ class MainViewController: UIViewController  {
 }
 
 // Methods for Firebase Helper Functions
-extension MainViewController {
+extension LoginViewController {
     
     func configureAuth() {
         let providerList: [FUIAuthProvider ] = [FUIGoogleAuth()]
@@ -107,7 +113,7 @@ extension MainViewController {
 }
 
 // Keyboard
-extension MainViewController {
+extension LoginViewController {
     @objc func keyboardWillShow(_ notification:Notification) {
         let keyboardHeight = getKeyboardHeight(notification)
         // shifting upwards, from 0 to keybaord height

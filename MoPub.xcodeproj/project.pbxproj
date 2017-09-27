@@ -15,7 +15,7 @@
 		DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC748B5B1F745D2C00CE73EF /* Constant.swift */; };
 		DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */; };
 		DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21571F7449B500BC08EC /* AppDelegate.swift */; };
-		DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21591F7449B500BC08EC /* MainViewController.swift */; };
+		DCFB215A1F7449B500BC08EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB21591F7449B500BC08EC /* LoginViewController.swift */; };
 		DCFB215D1F7449B500BC08EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFB215B1F7449B500BC08EC /* Main.storyboard */; };
 		DCFB21601F7449B500BC08EC /* MoPub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCFB215E1F7449B500BC08EC /* MoPub.xcdatamodeld */; };
 		DCFB21621F7449B500BC08EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFB21611F7449B500BC08EC /* Assets.xcassets */; };
@@ -64,7 +64,7 @@
 		DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEventViewController.swift; sourceTree = "<group>"; };
 		DCFB21541F7449B500BC08EC /* MoPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoPub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFB21571F7449B500BC08EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCFB21591F7449B500BC08EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DCFB21591F7449B500BC08EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DCFB215C1F7449B500BC08EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCFB215F1F7449B500BC08EC /* MoPub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoPub.xcdatamodel; sourceTree = "<group>"; };
 		DCFB21611F7449B500BC08EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 				DC748B581F745CE600CE73EF /* Constant */,
 				DC748B571F745CDE00CE73EF /* Controller */,
 				DC748B561F745CD500CE73EF /* Model */,
-				DCFB21591F7449B500BC08EC /* MainViewController.swift */,
+				DCFB21591F7449B500BC08EC /* LoginViewController.swift */,
 				DCFB21571F7449B500BC08EC /* AppDelegate.swift */,
 				DC748B541F7457C900CE73EF /* GoogleService-Info.plist */,
 				DCFB21661F7449B500BC08EC /* Info.plist */,
@@ -597,7 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC208CAC1F7B04EC0007B90A /* Channel.swift in Sources */,
-				DCFB215A1F7449B500BC08EC /* MainViewController.swift in Sources */,
+				DCFB215A1F7449B500BC08EC /* LoginViewController.swift in Sources */,
 				DC208CAA1F7AAF7D0007B90A /* LocationSearchTableVC.swift in Sources */,
 				DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */,
 				DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */,
