@@ -152,30 +152,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ORb-jt-QXE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-gj-0w7">
                                 <rect key="frame" x="0.0" y="124" width="375" height="494"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ORb-jt-QXE" secondAttribute="trailing" id="AXh-x5-5h7"/>
-                            <constraint firstItem="ORb-jt-QXE" firstAttribute="top" secondItem="xcg-Ls-Ffk" secondAttribute="top" id="Fi0-yw-wy3"/>
-                            <constraint firstItem="xcg-Ls-Ffk" firstAttribute="bottom" secondItem="cF2-gj-0w7" secondAttribute="bottom" id="Lmk-kF-AUd"/>
-                            <constraint firstItem="cF2-gj-0w7" firstAttribute="top" secondItem="ORb-jt-QXE" secondAttribute="bottom" id="Qwk-g5-cPb"/>
-                            <constraint firstItem="ORb-jt-QXE" firstAttribute="leading" secondItem="xcg-Ls-Ffk" secondAttribute="leading" id="TMj-zF-E8p"/>
-                            <constraint firstItem="cF2-gj-0w7" firstAttribute="leading" secondItem="xcg-Ls-Ffk" secondAttribute="leading" id="ftl-8s-L7U"/>
-                            <constraint firstItem="xcg-Ls-Ffk" firstAttribute="trailing" secondItem="cF2-gj-0w7" secondAttribute="trailing" id="r4G-B4-sc2"/>
+                            <constraint firstItem="cF2-gj-0w7" firstAttribute="top" secondItem="xcg-Ls-Ffk" secondAttribute="top" id="JiM-nl-kZB"/>
+                            <constraint firstItem="cF2-gj-0w7" firstAttribute="leading" secondItem="xcg-Ls-Ffk" secondAttribute="leading" id="Ser-9M-uUK"/>
+                            <constraint firstItem="cF2-gj-0w7" firstAttribute="trailing" secondItem="xcg-Ls-Ffk" secondAttribute="trailing" id="gDz-LG-Roq"/>
+                            <constraint firstItem="cF2-gj-0w7" firstAttribute="bottom" secondItem="xcg-Ls-Ffk" secondAttribute="bottom" id="xC1-dv-dlf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xcg-Ls-Ffk"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="NearBy" image="Map" id="h81-PR-YID"/>
                     <connections>
                         <outlet property="mapView" destination="cF2-gj-0w7" id="wy3-xL-dnq"/>
-                        <outlet property="searchBar" destination="ORb-jt-QXE" id="jQ1-2g-nc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pam-4W-k7u" userLabel="First Responder" sceneMemberID="firstResponder"/>

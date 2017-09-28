@@ -231,12 +231,14 @@ class ChatTestViewController: JSQMessagesViewController {
     override func didPressAccessoryButton(_ sender: UIButton) {
         let picker = UIImagePickerController()
         picker.delegate = self
-        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
-            picker.sourceType = UIImagePickerControllerSourceType.camera
-        } else {
-            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        }
+//        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
+//            picker.sourceType = UIImagePickerControllerSourceType.camera
+//        } else {
+//            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+//        }
         
+        // fix to photoLib for now ==> will have to change later!
+        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         present(picker, animated: true, completion:nil)
     }
     
@@ -273,11 +275,12 @@ class ChatTestViewController: JSQMessagesViewController {
                 }
                 
                 // 4
-                if (metadata?.contentType == "image/gif") {
-                    mediaItem.image = UIImage.gifWithData(data!)
-                } else {
-                    mediaItem.image = UIImage.init(data: data!)
-                }
+//                if (metadata?.contentType == "image/gif") {
+//                    mediaItem.image = UIImage.gifWithData(data!)
+//                } else {
+//                    mediaItem.image = UIImage.init(data: data!)
+//                }
+                mediaItem.image = UIImage.init(data: data!)
                 self.collectionView.reloadData()
                 
                 // 5
