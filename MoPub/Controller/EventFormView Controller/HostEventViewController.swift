@@ -46,6 +46,7 @@ class HostEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Do any additional setup after loading the view.
         // textField
         eventTitle.delegate = self
@@ -125,7 +126,7 @@ class HostEventViewController: UIViewController {
             let keywords = eventKeyWords.text!.split(separator: ",")
             
             let channelItem = [
-                Constant.FB.hostName: "host_bot1",
+                Constant.FB.hostName: Auth.auth().currentUser?.displayName ?? "Anonymous Host",
                 Constant.FB.latitude: selectedPin!.coordinate.latitude,
                 Constant.FB.longtitude: selectedPin!.coordinate.longitude,
                 Constant.FB.title: eventTitle.text!,

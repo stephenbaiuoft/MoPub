@@ -365,7 +365,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="yg3-QU-bEP"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="ekv-g6-AbS" userLabel="Refresh"/>
-                            <barButtonItem systemItem="add" id="1Jw-66-HTK" userLabel="Refresh">
+                            <barButtonItem systemItem="add" id="1Jw-66-HTK" userLabel="Host Event">
                                 <connections>
                                     <segue destination="L7U-nc-YgP" kind="show" identifier="segueToHostEvent" id="QpK-Dj-AyM"/>
                                 </connections>
