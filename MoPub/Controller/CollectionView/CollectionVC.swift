@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 class CollectionVC: UICollectionViewController {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    var mainActivityIndicator: UIActivityIndicatorView!
     
     var imageStringSet: [String]? {
         // whenever changed, reloadData for collectionView
@@ -44,6 +45,15 @@ class CollectionVC: UICollectionViewController {
         
         setFlowLayout(size: view.frame.width)
         didLoadView = true
+        
+        mainActivityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        view.addSubview(mainActivityIndicator)
+        mainActivityIndicator.hidesWhenStopped = true
+        mainActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.init(item: mainActivityIndicator, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: mainActivityIndicator, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        mainActivityIndicator.startAnimating()
         
         loadImageData()
     }
@@ -110,6 +120,9 @@ extension CollectionVC {
             
             if(errString == nil) {
                 DispatchQueue.main.async {
+                    if self.mainActivityIndicator.isAnimating{
+                        self.mainActivityIndicator.stopAnimating()
+                    }
                     // stop activityIndicator
                     activityIndicator.stopAnimating()
                     cell.imageView.image = UIImage.init(data: imageData!)
@@ -159,7 +172,7 @@ extension CollectionVC {
                     }
                 }
                 else {
-                    // allocate this dataSet to imageUrlDataSet
+ 
                     self.imageStringSet = imageUrlDataSet
                 }
             }
