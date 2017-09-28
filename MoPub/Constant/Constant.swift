@@ -12,6 +12,9 @@ class Constant {
     struct VC {
         static let segueToHostEvent = "segueToHostEvent"
         static let segueToMapView = "segueToMapView"
+        static let segueChannelToChatVC = "segueChannelToChatVC"
+        static let segueToChatVC = "segueToChatVC"
+        
     }
     
     struct FB {

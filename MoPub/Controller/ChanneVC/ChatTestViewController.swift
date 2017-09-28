@@ -1,44 +1,42 @@
-/*
-* Copyright (c) 2015 Razeware LLC
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-* THE SOFTWARE.
-*/
+//
+//  ChatTestViewController.swift
+//  MoPub
+//
+//  Created by stephen on 9/27/17.
+//  Copyright © 2017 Bai Cloud AI Co. All rights reserved.
+//
 
 import UIKit
-import Firebase
 import JSQMessagesViewController
+import Firebase
 import Photos
 
-// final prevents the class ChatViewController of being over-written
-final class ChatViewController: JSQMessagesViewController {
+class ChatTestViewController: JSQMessagesViewController {
+    
     // MARK: Chat properties
     var messages = [JSQMessage]()
+    
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
     // MARK: Store Photo
-    lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://chatchat-e78e8.appspot.com/")
+    lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://mopub-4760c.appspot.com/")
     let imageURLNotSetKey = "NOTSET"
     // MARK: Displaying Images
     private var photoMessageMap = [String: JSQPhotoMediaItem]()
+
+    // MARK: Firebase Properties
     
-    // MARK: Firebase references
+    // Will be set to uniqueId path
+    var channelRef: DatabaseReference? = nil
+    var channel: Channel? {
+        didSet {
+            // updating the title name ==> hostName's Event Group
+            title = channel?.hostName ?? "Anonymous Host" + " Event Group"
+        }
+    }
+
+    // Now will be set & add message node/child
     private lazy var messageRef = self.channelRef!.child("messages")
     private var newMessageRefHandle: DatabaseHandle?
     // Handle for any updates to the message that occur later ==> in this case: when image URL is updated after it's saved to storage
@@ -63,39 +61,28 @@ final class ChatViewController: JSQMessagesViewController {
     private lazy var usersTypingQuery: DatabaseQuery =
         self.channelRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
     
+    // MARK: View Lifecycle
     
-  // MARK: Firebase Properties
-    var channelRef: DatabaseReference? = nil
-    var channel: Channel? {
-        didSet {
-            // updating the title name 
-            title = channel?.name
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // have to set senderId to something unique!
+        // fortunately firebase auth provides this unique information ;)
+        self.senderId = Auth.auth().currentUser?.uid
+        print("senderId is:\(senderId!)")
+        
+        // real-time observe messages
+        observeMessages()
+        
+        // No avatars
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
     }
-
     
-  // MARK: View Lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // have to set senderId to something unique!
-    // fortunately firebase auth provides this unique information ;)
-    self.senderId = Auth.auth().currentUser?.uid
-    print("senderId is:\(senderId!)")
-    
-    // real-time observe messages
-    observeMessages()
-    
-    // No avatars
-    collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
-    collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-
-    observeTyping()
-  }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        observeTyping()
+    }
     
     // make sure you unsubscribe/remove observing the database!
     deinit {
@@ -117,12 +104,12 @@ final class ChatViewController: JSQMessagesViewController {
     }
     
     
-   func observeTyping() {
-    // MARK: updating the Current User
+    func observeTyping() {
+        // MARK: updating the Current User
         let typingIndicatorRef = channelRef!.child("typingIndicator")
         userIsTypingRef = typingIndicatorRef.child(senderId)
         userIsTypingRef.onDisconnectRemoveValue()
-    
+        
         // 1
         usersTypingQuery.observe(.value) { (data: DataSnapshot) in
             // 2 You're the only one typing, don't show the indicator
@@ -134,7 +121,7 @@ final class ChatViewController: JSQMessagesViewController {
             self.showTypingIndicator = data.childrenCount > 0
             self.scrollToBottom(animated: true)
         }
-    
+        
     }
     
     func observeMessages() {
@@ -172,7 +159,7 @@ final class ChatViewController: JSQMessagesViewController {
                 self.finishReceivingMessage()
             }
                 
-            // Hanlde photoUrl
+                // Hanlde photoUrl
             else if let id = messageData["senderId"] as String!,
                 let photoURL = messageData["photoURL"] as String! { // 1
                 // 2
@@ -218,7 +205,7 @@ final class ChatViewController: JSQMessagesViewController {
         itemRef.updateChildValues(["photoURL": url])
     }
     
-    // JSQ: Handling selecting the image from ImagePicker
+    // MARK: Camera Icon Pressed, JSQ: Handling selecting the image from ImagePicker
     override func didPressAccessoryButton(_ sender: UIButton) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -280,12 +267,12 @@ final class ChatViewController: JSQMessagesViewController {
         }
     }
     
-    // Sending Button Pressed!!!
+    // MARK: Sending Button Overridden
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let itemRef = messageRef.childByAutoId() // 1
         let messageItem = [ // 2
             "senderId": senderId!,
-            "senderName": senderDisplayName!,
+            "senderName": channel!.hostName,
             "text": text!,
             ]
         
@@ -303,7 +290,9 @@ final class ChatViewController: JSQMessagesViewController {
 }
 
 // MARK: Image Picker Delegate
-extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ChatTestViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // MARK: imagePickerController Delegate Methods Region
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -372,3 +361,4 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
         picker.dismiss(animated: true, completion:nil)
     }
 }
+

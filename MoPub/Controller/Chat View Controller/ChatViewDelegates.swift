@@ -1,16 +1,16 @@
 //
-//  JSQDelegates.swift
-//  ChatChat
+//  ChatViewDelegates.swift
+//  MoPub
 //
-//  Created by stephen on 9/25/17.
-//  Copyright © 2017 Razeware LLC. All rights reserved.
+//  Created by stephen on 9/27/17.
+//  Copyright © 2017 Bai Cloud AI Co. All rights reserved.
 //
 
 import Foundation
 import JSQMessagesViewController
 
-extension ChatViewController {
-    
+extension ChatTestViewController {
+
     // Similar to UITableViewDelegate Methods
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
@@ -58,5 +58,15 @@ extension ChatViewController {
     // MARK: Remove the default message avatar display!
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
+    }
+    
+}
+
+extension ChatTestViewController {
+    func addMessage(withId id: String, name: String, text: String) {
+        
+        if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+            messages.append(message)
+        }
     }
 }

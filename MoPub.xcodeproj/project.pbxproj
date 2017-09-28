@@ -12,6 +12,9 @@
 		DC208CAA1F7AAF7D0007B90A /* LocationSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CA91F7AAF7D0007B90A /* LocationSearchTableVC.swift */; };
 		DC208CAC1F7B04EC0007B90A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CAB1F7B04EC0007B90A /* Channel.swift */; };
 		DC473A2A1F7C71D500EAE986 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A291F7C71D500EAE986 /* ChannelListViewController.swift */; };
+		DC473A2F1F7C7EA300EAE986 /* ChatTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A2E1F7C7EA300EAE986 /* ChatTestViewController.swift */; };
+		DC473A311F7C826E00EAE986 /* ChatViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A301F7C826E00EAE986 /* ChatViewDelegates.swift */; };
+		DC473A331F7C82D500EAE986 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A321F7C82D500EAE986 /* UIImageExtension.swift */; };
 		DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC748B541F7457C900CE73EF /* GoogleService-Info.plist */; };
 		DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC748B5B1F745D2C00CE73EF /* Constant.swift */; };
 		DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */; };
@@ -56,14 +59,12 @@
 		DC208CAB1F7B04EC0007B90A /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		DC473A281F7C614800EAE986 /* MoPub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoPub.entitlements; sourceTree = "<group>"; };
 		DC473A291F7C71D500EAE986 /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
+		DC473A2E1F7C7EA300EAE986 /* ChatTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatTestViewController.swift; path = MoPub/Controller/ChanneVC/ChatTestViewController.swift; sourceTree = SOURCE_ROOT; };
+		DC473A301F7C826E00EAE986 /* ChatViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewDelegates.swift; sourceTree = "<group>"; };
+		DC473A321F7C82D500EAE986 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		DC748B541F7457C900CE73EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC748B5B1F745D2C00CE73EF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		DCEB54C51F79EFDD005FFABA /* JSQDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQDelegates.swift; sourceTree = "<group>"; };
-		DCEB54C61F79EFDD005FFABA /* JSQMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMethods.swift; sourceTree = "<group>"; };
-		DCEB54C71F79EFDD005FFABA /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		DCEB54C81F79EFDD005FFABA /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
-		DCEB54CC1F79F02F005FFABA /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEventViewController.swift; sourceTree = "<group>"; };
 		DCFB21541F7449B500BC08EC /* MoPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoPub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFB21571F7449B500BC08EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,10 +192,9 @@
 		DCEB54C41F79EFC7005FFABA /* Chat View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DCEB54C81F79EFDD005FFABA /* ChannelListViewController.swift */,
-				DCEB54C71F79EFDD005FFABA /* ChatViewController.swift */,
-				DCEB54C51F79EFDD005FFABA /* JSQDelegates.swift */,
-				DCEB54C61F79EFDD005FFABA /* JSQMethods.swift */,
+				DC473A2E1F7C7EA300EAE986 /* ChatTestViewController.swift */,
+				DC473A301F7C826E00EAE986 /* ChatViewDelegates.swift */,
+				DC473A321F7C82D500EAE986 /* UIImageExtension.swift */,
 			);
 			path = "Chat View Controller";
 			sourceTree = "<group>";
@@ -202,7 +202,6 @@
 		DCEB54CB1F79F027005FFABA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DCEB54CC1F79F02F005FFABA /* UIImage+Gif.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -618,11 +617,14 @@
 				DCFB215A1F7449B500BC08EC /* LoginViewController.swift in Sources */,
 				DC208CAA1F7AAF7D0007B90A /* LocationSearchTableVC.swift in Sources */,
 				DC473A2A1F7C71D500EAE986 /* ChannelListViewController.swift in Sources */,
+				DC473A2F1F7C7EA300EAE986 /* ChatTestViewController.swift in Sources */,
 				DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */,
+				DC473A311F7C826E00EAE986 /* ChatViewDelegates.swift in Sources */,
 				DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */,
 				DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */,
 				DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */,
 				DCFB21601F7449B500BC08EC /* MoPub.xcdatamodeld in Sources */,
+				DC473A331F7C82D500EAE986 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
