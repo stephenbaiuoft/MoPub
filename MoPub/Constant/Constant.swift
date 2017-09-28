@@ -14,6 +14,7 @@ class Constant {
         static let segueToMapView = "segueToMapView"
         static let segueChannelToChatVC = "segueChannelToChatVC"
         static let segueToChatVC = "segueToChatVC"
+        static let segueToLogin = "segueToLogin"
         
     }
     

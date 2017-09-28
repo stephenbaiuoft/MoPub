@@ -29,12 +29,14 @@ class LoginViewController: UIViewController  {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        nameField.delegate = self
     }
 
     // MARK: View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
+
         
         _authHandle = Auth.auth().addStateDidChangeListener({ (auth: Auth, user: User?) in
             if self.user == nil {
@@ -116,7 +118,13 @@ extension LoginViewController {
 }
 
 // Keyboard
-extension LoginViewController {
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     @objc func keyboardWillShow(_ notification:Notification) {
         let keyboardHeight = getKeyboardHeight(notification)
         // shifting upwards, from 0 to keybaord height

@@ -15,6 +15,7 @@
 		DC473A2F1F7C7EA300EAE986 /* ChatTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A2E1F7C7EA300EAE986 /* ChatTestViewController.swift */; };
 		DC473A311F7C826E00EAE986 /* ChatViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A301F7C826E00EAE986 /* ChatViewDelegates.swift */; };
 		DC473A331F7C82D500EAE986 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A321F7C82D500EAE986 /* UIImageExtension.swift */; };
+		DC473A361F7CA0A100EAE986 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC473A351F7CA0A100EAE986 /* TabBarViewController.swift */; };
 		DC748B551F7457C900CE73EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC748B541F7457C900CE73EF /* GoogleService-Info.plist */; };
 		DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC748B5B1F745D2C00CE73EF /* Constant.swift */; };
 		DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */; };
@@ -62,6 +63,7 @@
 		DC473A2E1F7C7EA300EAE986 /* ChatTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatTestViewController.swift; path = MoPub/Controller/ChanneVC/ChatTestViewController.swift; sourceTree = SOURCE_ROOT; };
 		DC473A301F7C826E00EAE986 /* ChatViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewDelegates.swift; sourceTree = "<group>"; };
 		DC473A321F7C82D500EAE986 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		DC473A351F7CA0A100EAE986 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DC748B541F7457C900CE73EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC748B5B1F745D2C00CE73EF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			path = ChanneVC;
 			sourceTree = "<group>";
 		};
+		DC473A341F7CA08100EAE986 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				DC473A351F7CA0A100EAE986 /* TabBarViewController.swift */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
 		DC748B561F745CD500CE73EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +165,7 @@
 		DC748B571F745CDE00CE73EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DC473A341F7CA08100EAE986 /* Tab Bar */,
 				DC208CAD1F7B5ECF0007B90A /* ChanneVC */,
 				DCEB54CE1F7A118D005FFABA /* EventFormView Controller */,
 				DCEB54CD1F7A0348005FFABA /* MapView Controller */,
@@ -623,6 +634,7 @@
 				DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */,
 				DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */,
 				DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */,
+				DC473A361F7CA0A100EAE986 /* TabBarViewController.swift in Sources */,
 				DCFB21601F7449B500BC08EC /* MoPub.xcdatamodeld in Sources */,
 				DC473A331F7C82D500EAE986 /* UIImageExtension.swift in Sources */,
 			);

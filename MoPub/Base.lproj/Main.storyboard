@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,12 +73,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="nameField" destination="uwP-dq-kwn" id="Lj1-ym-SPG"/>
                         <segue destination="DMF-0K-JTz" kind="show" identifier="segueToMapView" id="Ptv-tH-VKs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-993" y="-914"/>
+            <point key="canvasLocation" x="-774" y="-1064"/>
         </scene>
         <!--ChannelList-->
         <scene sceneID="BrW-ty-2GL">
@@ -349,20 +349,22 @@
             </objects>
             <point key="canvasLocation" x="-610" y="-90"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="oGD-mE-J2e">
             <objects>
-                <tabBarController id="huI-1s-nGH" sceneMemberID="viewController">
+                <tabBarController id="huI-1s-nGH" customClass="TabBarViewController" customModule="MoPub" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Jme-TO-sgl">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="yg3-QU-bEP"/>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="ekv-g6-AbS" userLabel="Refresh"/>
-                            <barButtonItem systemItem="add" id="1Jw-66-HTK" userLabel="Host Event">
-                                <connections>
-                                    <segue destination="L7U-nc-YgP" kind="show" identifier="segueToHostEvent" id="QpK-Dj-AyM"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="yg3-QU-bEP">
+                            <connections>
+                                <action selector="logOut" destination="huI-1s-nGH" id="Lqq-8U-11N"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueToLogin" id="YVv-Dv-RGn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Jw-66-HTK" userLabel="Host Event">
+                            <connections>
+                                <segue destination="L7U-nc-YgP" kind="show" identifier="segueToHostEvent" id="QpK-Dj-AyM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hi2-na-gOI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
