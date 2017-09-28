@@ -15,7 +15,7 @@ class Constant {
         static let segueChannelToChatVC = "segueChannelToChatVC"
         static let segueToChatVC = "segueToChatVC"
         static let segueToLogin = "segueToLogin"
-        
+        static let segueToCollectionVC = "segueToCollectionVC"
     }
     
     struct FB {

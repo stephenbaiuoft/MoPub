@@ -28,5 +28,10 @@ class TabBarViewController: UITabBarController {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! LoginViewController
+            
+    }
 
 }

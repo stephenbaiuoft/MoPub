@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4FB7984A3E1CAA1F9F4571CE /* Pods_MoPubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561942C8AB68545A1248BF /* Pods_MoPubUITests.framework */; };
+		DC07AA6B1F7CB4570057DFBE /* FClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC07AA6A1F7CB4570057DFBE /* FClient.swift */; };
+		DC07AA6D1F7CB4CB0057DFBE /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC07AA6C1F7CB4CB0057DFBE /* DoubleExtension.swift */; };
+		DC07AA6F1F7CB4EA0057DFBE /* VConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC07AA6E1F7CB4EA0057DFBE /* VConstant.swift */; };
+		DC07AA721F7CB52F0057DFBE /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC07AA711F7CB52F0057DFBE /* CollectionVC.swift */; };
+		DC07AA741F7CB6090057DFBE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC07AA731F7CB6090057DFBE /* ImageCollectionViewCell.swift */; };
 		DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CA71F7A97D90007B90A /* MapViewController.swift */; };
 		DC208CAA1F7AAF7D0007B90A /* LocationSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CA91F7AAF7D0007B90A /* LocationSearchTableVC.swift */; };
 		DC208CAC1F7B04EC0007B90A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC208CAB1F7B04EC0007B90A /* Channel.swift */; };
@@ -55,6 +60,11 @@
 		8BA11CD36BEF8873E9591C57 /* Pods-MoPub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoPub/Pods-MoPub.debug.xcconfig"; sourceTree = "<group>"; };
 		B833FB82CDD5A88043518430 /* Pods-MoPubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoPubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoPubUITests/Pods-MoPubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E6139A20CAFE7A53379ED7 /* Pods_MoPubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoPubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC07AA6A1F7CB4570057DFBE /* FClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FClient.swift; sourceTree = "<group>"; };
+		DC07AA6C1F7CB4CB0057DFBE /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		DC07AA6E1F7CB4EA0057DFBE /* VConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConstant.swift; sourceTree = "<group>"; };
+		DC07AA711F7CB52F0057DFBE /* CollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
+		DC07AA731F7CB6090057DFBE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC208CA71F7A97D90007B90A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DC208CA91F7AAF7D0007B90A /* LocationSearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableVC.swift; sourceTree = "<group>"; };
 		DC208CAB1F7B04EC0007B90A /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -66,7 +76,6 @@
 		DC473A351F7CA0A100EAE986 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DC748B541F7457C900CE73EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC748B5B1F745D2C00CE73EF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		DCEB54CF1F7A11B8005FFABA /* HostEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEventViewController.swift; sourceTree = "<group>"; };
 		DCFB21541F7449B500BC08EC /* MoPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoPub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFB21571F7449B500BC08EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +147,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC07AA691F7CB4420057DFBE /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				DC07AA6A1F7CB4570057DFBE /* FClient.swift */,
+				DC07AA6C1F7CB4CB0057DFBE /* DoubleExtension.swift */,
+				DC07AA6E1F7CB4EA0057DFBE /* VConstant.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		DC07AA701F7CB5110057DFBE /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				DC07AA711F7CB52F0057DFBE /* CollectionVC.swift */,
+				DC07AA731F7CB6090057DFBE /* ImageCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		DC208CAD1F7B5ECF0007B90A /* ChanneVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +185,7 @@
 		DC748B561F745CD500CE73EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DC07AA691F7CB4420057DFBE /* Client */,
 				DCEB54C31F79EFB2005FFABA /* Chat */,
 			);
 			path = Model;
@@ -165,6 +194,7 @@
 		DC748B571F745CDE00CE73EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DC07AA701F7CB5110057DFBE /* CollectionView */,
 				DC473A341F7CA08100EAE986 /* Tab Bar */,
 				DC208CAD1F7B5ECF0007B90A /* ChanneVC */,
 				DCEB54CE1F7A118D005FFABA /* EventFormView Controller */,
@@ -194,7 +224,6 @@
 		DCEB54C31F79EFB2005FFABA /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				DCEB54CA1F79F001005FFABA /* CreateChannelCell.swift */,
 				DC208CAB1F7B04EC0007B90A /* Channel.swift */,
 			);
 			path = Chat;
@@ -624,14 +653,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC07AA6D1F7CB4CB0057DFBE /* DoubleExtension.swift in Sources */,
 				DC208CAC1F7B04EC0007B90A /* Channel.swift in Sources */,
 				DCFB215A1F7449B500BC08EC /* LoginViewController.swift in Sources */,
 				DC208CAA1F7AAF7D0007B90A /* LocationSearchTableVC.swift in Sources */,
+				DC07AA6B1F7CB4570057DFBE /* FClient.swift in Sources */,
 				DC473A2A1F7C71D500EAE986 /* ChannelListViewController.swift in Sources */,
 				DC473A2F1F7C7EA300EAE986 /* ChatTestViewController.swift in Sources */,
 				DC208CA81F7A97D90007B90A /* MapViewController.swift in Sources */,
 				DC473A311F7C826E00EAE986 /* ChatViewDelegates.swift in Sources */,
+				DC07AA721F7CB52F0057DFBE /* CollectionVC.swift in Sources */,
 				DCEB54D01F7A11B8005FFABA /* HostEventViewController.swift in Sources */,
+				DC07AA741F7CB6090057DFBE /* ImageCollectionViewCell.swift in Sources */,
+				DC07AA6F1F7CB4EA0057DFBE /* VConstant.swift in Sources */,
 				DC748B5C1F745D2C00CE73EF /* Constant.swift in Sources */,
 				DCFB21581F7449B500BC08EC /* AppDelegate.swift in Sources */,
 				DC473A361F7CA0A100EAE986 /* TabBarViewController.swift in Sources */,

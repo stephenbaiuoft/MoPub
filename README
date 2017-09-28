@@ -1,0 +1,34 @@
+App Functionality
+1. This is a hosting event application, where anyone can log in anonymously and host their event
+
+Steps to use the app:
+	i. user logs in with a name
+	ii. now, the app goes to the main mapview, where the user sees all hosted events nearby him
+	iii. the user can go to the listView, and see the list of all nearby events
+	iv. by clicking on the listView, the user enters the conversation room, where he gets to talk with anyone in that channel 
+	v. the user can also tap on the map view, and see nearby pictures of the event 
+	vi. the user can also host his/her own event by clicking on the + icon
+
+
+Build:
+
+1. install cocoapods, tutorial @ https://guides.cocoapods.org/using/getting-started.html#getting-started
+2. copy the directory's Podfile and run pod install
+3. now open the project and build!!!!!
+
+
+
+Criteria:
+User Interface: 1. look at the storyboard and you can easily see the app meets the standard
+
+Networking: 
+1. the app gets data from Flickr
+2. the networking code is in FClient.swift
+3. the activityIndicator is used for collectionViewCell
+4. network failure: CollectionVC.swift: showAlert() function raises an alert whenever an error occurs
+
+Persistent State:
+1. the app uses firebase for real-time database storage and also data storage
+
+Functionality:
+1. The app runs as described

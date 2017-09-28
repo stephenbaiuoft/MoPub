@@ -24,6 +24,8 @@ class LoginViewController: UIViewController  {
     fileprivate var _authHandle: AuthStateDidChangeListenerHandle!
     // current user information
     var user: User? = nil
+    var logOut: Bool = false
+    var isInit: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,37 +40,46 @@ class LoginViewController: UIViewController  {
         subscribeToKeyboardNotifications()
 
         
-        _authHandle = Auth.auth().addStateDidChangeListener({ (auth: Auth, user: User?) in
-            if self.user == nil {
-                
-            }
-            else if let activeUser = user   {
-                self.user = activeUser
-                print("Current User Exists, lets go to MapView")
-                
-                self.performSegue(withIdentifier: Constant.VC.segueToMapView, sender: self)
-            }
-            else {
-                // sign in
-            }
-        })
-        
+//        _authHandle = Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) in
+//            // check if there is a current user
+//            print (  " userGoogle: \(user?.displayName),  userDefault: \(self.user?.displayName)")
+//
+//            // if is initially added listener
+//            if(!self.isInit) {
+//                print("auth user? \(auth.currentUser?.displayName)")
+//                if let activeUser = user {
+//                    // switched account or new just logged in
+//                    if self.user != activeUser {
+//                        self.user = activeUser
+//                        DispatchQueue.main.async {
+//                            let controller =
+//                                self.storyboard?.instantiateViewController(withIdentifier: Constant.VC.segueToMapView) as! UINavigationController
+//                            self.present(controller, animated: true)
+//                        }
+//                    }
+//                }
+//            }
+//            // just loggout
+//            else {
+//                // toggle logOut to false so you can logIn again
+//                self.isInit = false
+//            }
+//        }
+//
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
-        
         // remove the listener
-        Auth.auth().removeStateDidChangeListener(_authHandle)
-        
+        // Auth.auth().removeStateDidChangeListener(_authHandle)
     }
     
     // Authenticatation Login Methods
-    @IBAction func logInAuth(_ sender: AnyObject) {
-        // set up the configure?
-        configureAuth()
-    }
+//    @IBAction func logInAuth(_ sender: AnyObject) {
+//        // set up the configure?
+//        configureAuth()
+//    }
     
     // Asynchronous Login
     @IBAction func logInAsync(_ sender: AnyObject) {

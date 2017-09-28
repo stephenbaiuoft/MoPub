@@ -28,7 +28,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-                
+        
+        mapView.delegate = self
         // Listen to FireBase updates
         observeChannels()
         
@@ -46,15 +47,34 @@ class MapViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     // reloadAnnotation from the mapView
     func reloadAnnotation( annotation: MKAnnotation ) {
-        
+
         DispatchQueue.main.async {
             // remove in case of duplicates: Will be fixed later on!
             self.mapView.removeAnnotation(annotation)
             self.mapView.addAnnotation(annotation)
+            
         }
     }
+    
+    // MARK: Segue Region
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let annotation = sender as? MKAnnotation {
+            let latitude = annotation.coordinate.latitude
+            let longtitude = annotation.coordinate.longitude
+            
+            let controller = segue.destination as! CollectionVC
+            controller.latitude = latitude
+            controller.longtitude = longtitude
+        }
+
+    }
+    
 }
 
 // Firebase methods
@@ -77,7 +97,8 @@ extension MapViewController {
                 annotation.subtitle = subtitle
                     
                 self.reloadAnnotation(annotation: annotation)
-                
+
+
             } else {
                 print("Error! Could not decode channel data")
             }
@@ -100,10 +121,26 @@ extension MapViewController : CLLocationManagerDelegate {
             let span = MKCoordinateSpanMake(0.1, 0.1)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.setRegion(region, animated: true)
+
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error)")
+    }
+}
+
+// MARK: mapView Delegates
+extension MapViewController: MKMapViewDelegate {
+    // MARK: a map annotation is selected
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print( "Entered mapView selection annotation delegation methods")
+        
+//        let latitude = view.annotation?.coordinate.latitude
+//        let longtitude = view.annotation?.coordinate.longitude
+        
+        // This is the section for detailed MapView segue and etc
+        let value = view.annotation!
+        performSegue(withIdentifier: Constant.VC.segueToCollectionVC, sender: value)
     }
 }
