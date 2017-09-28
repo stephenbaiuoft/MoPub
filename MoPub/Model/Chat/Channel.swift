@@ -22,9 +22,12 @@ internal class Channel {
     internal let longtitude: Double
     internal let latitude: Double
     
+    internal let size: Int
+    internal let description: String
+    
     
     init(id: String, name: String, title: String, keywords: [String],
-         longtitude: Double, latitude: Double) {
+         longtitude: Double, latitude: Double, size: Int, description: String) {
         
         self.uniqueId = id
         self.hostName = name
@@ -33,5 +36,8 @@ internal class Channel {
         
         self.longtitude = longtitude
         self.latitude = latitude
+        
+        self.size = size
+        self.description = description
     }
 }

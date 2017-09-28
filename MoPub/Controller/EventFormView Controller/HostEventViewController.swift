@@ -136,8 +136,7 @@ class HostEventViewController: UIViewController {
             
             newChannelRef.setValue(channelItem)
             
-            print("Going back to mapView Controller")
-            
+            print("Going back to mapView Controller")            
             dismiss(animated: true, completion: nil)
         }
         
