@@ -29,9 +29,4 @@ class TabBarViewController: UITabBarController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! LoginViewController
-            
-    }
-
 }

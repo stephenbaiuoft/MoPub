@@ -39,33 +39,6 @@ class LoginViewController: UIViewController  {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
 
-        
-//        _authHandle = Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) in
-//            // check if there is a current user
-//            print (  " userGoogle: \(user?.displayName),  userDefault: \(self.user?.displayName)")
-//
-//            // if is initially added listener
-//            if(!self.isInit) {
-//                print("auth user? \(auth.currentUser?.displayName)")
-//                if let activeUser = user {
-//                    // switched account or new just logged in
-//                    if self.user != activeUser {
-//                        self.user = activeUser
-//                        DispatchQueue.main.async {
-//                            let controller =
-//                                self.storyboard?.instantiateViewController(withIdentifier: Constant.VC.segueToMapView) as! UINavigationController
-//                            self.present(controller, animated: true)
-//                        }
-//                    }
-//                }
-//            }
-//            // just loggout
-//            else {
-//                // toggle logOut to false so you can logIn again
-//                self.isInit = false
-//            }
-//        }
-//
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,11 +48,32 @@ class LoginViewController: UIViewController  {
         // Auth.auth().removeStateDidChangeListener(_authHandle)
     }
     
-    // Authenticatation Login Methods
-//    @IBAction func logInAuth(_ sender: AnyObject) {
-//        // set up the configure?
-//        configureAuth()
-//    }
+     // Authenticatation Login Methods
+    @IBAction func logInAuth(_ sender: AnyObject) {
+        
+        configureAuth()
+        
+        // Set up listener only when the button is clicked
+        _authHandle = Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) in
+            // check if there is a current user
+            print (  " userGoogle: \(user?.displayName),  userDefault: \(self.user?.displayName)")
+            
+            if let activeUser = user {
+                // switched account or new just logged in
+                if self.user != activeUser {
+                    self.user = activeUser
+                }
+            }
+            
+            DispatchQueue.main.async {
+                let controller =
+                    self.storyboard?.instantiateViewController(withIdentifier: Constant.VC.segueToMapView) as! UINavigationController
+                self.present(controller, animated: true)
+            }
+            
+        }
+        
+    }
     
     // Asynchronous Login
     @IBAction func logInAsync(_ sender: AnyObject) {

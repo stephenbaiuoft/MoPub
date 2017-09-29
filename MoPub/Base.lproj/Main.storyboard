@@ -41,10 +41,21 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUN-RW-2Az">
+                                <rect key="frame" x="20" y="318.5" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logInAuth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UdA-Kr-ALz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xYE-1V-fr0" firstAttribute="top" secondItem="uwP-dq-kwn" secondAttribute="bottom" constant="20" id="1w3-b6-JaH"/>
+                            <constraint firstItem="LUN-RW-2Az" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="42r-ze-ZIo"/>
                             <constraint firstItem="xYE-1V-fr0" firstAttribute="width" secondItem="uwP-dq-kwn" secondAttribute="width" id="7xb-m0-4rT"/>
                             <constraint firstItem="sw1-3k-ZkR" firstAttribute="centerX" secondItem="uwP-dq-kwn" secondAttribute="centerX" id="DYX-yn-sJj"/>
                             <constraint firstItem="xYE-1V-fr0" firstAttribute="height" secondItem="uwP-dq-kwn" secondAttribute="height" id="Hyx-fi-tx6"/>
@@ -53,8 +64,11 @@
                             <constraint firstItem="xYE-1V-fr0" firstAttribute="centerX" secondItem="uwP-dq-kwn" secondAttribute="centerX" id="Qnd-Pr-m72"/>
                             <constraint firstItem="uwP-dq-kwn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RkI-5o-nRn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xYE-1V-fr0" secondAttribute="bottom" constant="30" id="W5P-on-Dyz"/>
+                            <constraint firstItem="LUN-RW-2Az" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YfC-xs-eo3"/>
+                            <constraint firstItem="LUN-RW-2Az" firstAttribute="width" secondItem="uwP-dq-kwn" secondAttribute="width" id="d77-j8-5GM"/>
                             <constraint firstItem="uwP-dq-kwn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dea-Rn-pys"/>
                             <constraint firstItem="sw1-3k-ZkR" firstAttribute="height" secondItem="uwP-dq-kwn" secondAttribute="height" id="iHp-7e-DC9"/>
+                            <constraint firstItem="LUN-RW-2Az" firstAttribute="height" secondItem="uwP-dq-kwn" secondAttribute="height" id="zdP-GM-4Kh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

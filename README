@@ -10,6 +10,13 @@ Steps to use the app:
 	vi. the user can also host his/her own event by clicking on the + icon
 
 
+Events Added:
+1. "+" allows users to host a new event; this triggers a segue to the hostEventViewController
+2. "clicking on the map pin" connects to a collecitonViewController, where users get to see pictures of that location
+3. "Event Message Channel List" connects users to a list of chat channels, where users can talk and interact with others
+
+
+
 Build:
 
 1. install cocoapods, tutorial @ https://guides.cocoapods.org/using/getting-started.html#getting-started
