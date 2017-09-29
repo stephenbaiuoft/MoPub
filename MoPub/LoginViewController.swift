@@ -13,7 +13,7 @@ import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
 
 
-class LoginViewController: UIViewController  {
+class LoginViewController: UIViewController, FUIAuthDelegate  {
     
     // Outlet
     // Asynchronous Login
@@ -31,6 +31,7 @@ class LoginViewController: UIViewController  {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        FUIAuth.defaultAuthUI()?.delegate = self
         nameField.delegate = self
     }
 
@@ -53,25 +54,25 @@ class LoginViewController: UIViewController  {
         
         configureAuth()
         
-        // Set up listener only when the button is clicked
-        _authHandle = Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) in
-            // check if there is a current user
-            print (  " userGoogle: \(user?.displayName),  userDefault: \(self.user?.displayName)")
-            
-            if let activeUser = user {
-                // switched account or new just logged in
-                if self.user != activeUser {
-                    self.user = activeUser
-                }
-            }
-            
-            DispatchQueue.main.async {
-                let controller =
-                    self.storyboard?.instantiateViewController(withIdentifier: Constant.VC.segueToMapView) as! UINavigationController
-                self.present(controller, animated: true)
-            }
-            
-        }
+//        // Set up listener only when the button is clicked
+//        _authHandle = Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) in
+//            // check if there is a current user
+//            print (  " userGoogle: \(user?.displayName),  userDefault: \(self.user?.displayName)")
+//
+//            if let activeUser = user {
+//                // switched account or new just logged in
+//                if self.user != activeUser {
+//                    self.user = activeUser
+//                }
+//            }
+//
+//            DispatchQueue.main.async {
+//                let controller =
+//                    self.storyboard?.instantiateViewController(withIdentifier: Constant.VC.segueToMapView) as! UINavigationController
+//                self.present(controller, animated: true)
+//            }
+//
+//        }
         
     }
     
@@ -120,6 +121,17 @@ extension LoginViewController {
         let authViewController = FUIAuth.defaultAuthUI()?.authViewController()
         present(authViewController!, animated: true, completion: nil)
     }
+    
+    
+    // Call back function from uiAuth
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        if let activeUser = user {
+            self.user = activeUser
+            print("Going to MapView Segue")
+            performSegue(withIdentifier: Constant.VC.segueToMapView, sender: self)
+        }
+    }
+    
 }
 
 // Keyboard
