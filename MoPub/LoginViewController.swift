@@ -27,9 +27,11 @@ class LoginViewController: UIViewController, FUIAuthDelegate  {
     var logOut: Bool = false
     var isInit: Bool = true
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
         
         FUIAuth.defaultAuthUI()?.delegate = self
         nameField.delegate = self
@@ -40,6 +42,19 @@ class LoginViewController: UIViewController, FUIAuthDelegate  {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let hold = UserDefaults.standard.bool(forKey: "loggedin")
+        
+        if UserDefaults.standard.bool(forKey: "loggedin") {
+            // logged already ==> launch mapView
+            print("User already logged in")
+            performSegue(withIdentifier: Constant.VC.segueToMapView, sender: self)
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -96,11 +111,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate  {
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.VC.segueToHostEvent{
-            let hostVC = segue.destination as! HostEventViewController // 1
-            hostVC.user = user!
-            print("hosting user is \(user!)")
-        }
+       print("preparing to go to mapView Controller")
     }
     
     
@@ -128,6 +139,7 @@ extension LoginViewController {
         if let activeUser = user {
             self.user = activeUser
             print("Going to MapView Segue")
+            UserDefaults.standard.set(true, forKey: "loggedin")
             performSegue(withIdentifier: Constant.VC.segueToMapView, sender: self)
         }
     }

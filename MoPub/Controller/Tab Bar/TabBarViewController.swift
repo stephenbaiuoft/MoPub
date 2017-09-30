@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("TabBarViewControlle Entered Here?")
         // Do any additional setup after loading the view.
     }
 
@@ -21,11 +21,19 @@ class TabBarViewController: UITabBarController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            
             // go back to Login
             performSegue(withIdentifier: Constant.VC.segueToLogin, sender: self)
             
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.VC.segueToLogin {
+            print("preparing to go back and setting value for loggedin ")
+            UserDefaults.standard.set(false, forKey: "loggedin")
         }
     }
     

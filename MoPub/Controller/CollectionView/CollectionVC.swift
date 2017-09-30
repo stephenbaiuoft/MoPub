@@ -179,6 +179,7 @@ extension CollectionVC {
                 
             else {
                 // Error ==> a network Error!
+                
                 self.showAlert(alertMsg: "Network may be down!")
             }
             
@@ -188,6 +189,10 @@ extension CollectionVC {
     func showAlert(alertMsg: String) {
         
         DispatchQueue.main.async {
+            if (self.mainActivityIndicator.isAnimating) {
+                self.mainActivityIndicator.stopAnimating()
+            }
+            
             let alert = UIAlertController(title: alertMsg, message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)

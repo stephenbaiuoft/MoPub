@@ -34,12 +34,18 @@ import Firebase
 import Photos
 
 class ChatTestViewController: JSQMessagesViewController {
+    // IBOutlet
+    var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Chat properties
     var messages = [JSQMessage]()
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
+    
+    // MARK: connectedReference!!!
+    var connectedRef: DatabaseReference?
+    var connectedRefHandle : DatabaseHandle?
     
     // MARK: Store Photo
     lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://mopub-4760c.appspot.com/")
@@ -87,6 +93,24 @@ class ChatTestViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        observeNetwork()
+        
+        // MARK: instantiate activityIndicator
+        activityIndicator = UIActivityIndicatorView.init()
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        
+        view.addSubview(activityIndicator)
+        
+        let margins = view.layoutMarginsGuide
+        activityIndicator.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: margins.centerYAnchor).isActive = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        
+        
         // have to set senderId to something unique!
         // fortunately firebase auth provides this unique information ;)
         self.senderId = Auth.auth().currentUser?.uid
@@ -116,6 +140,11 @@ class ChatTestViewController: JSQMessagesViewController {
         if let refHandle = updatedMessageRefHandle {
             messageRef.removeObserver(withHandle: refHandle)
         }
+        
+        if let refHandle = connectedRefHandle {
+            connectedRef?.removeObserver(withHandle: refHandle)
+        }
+        
     }
     
     // Mark: Know when a User is Typing
@@ -146,6 +175,30 @@ class ChatTestViewController: JSQMessagesViewController {
         
     }
     
+    // MARK: observe network state
+    func observeNetwork() {
+        
+        connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRefHandle = connectedRef!.observe(.value, with: { snapshot in
+            if snapshot.value as? Bool ?? false {
+                print("Connected")
+            } else {
+                self.showAlert(alertMsg: "No Network Connection")
+            }
+        })
+
+    }
+    
+    func showAlert(alertMsg: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: alertMsg, message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+    }
+
+    
     func observeMessages() {
         messageRef = channelRef!.child("messages")
         
@@ -171,12 +224,14 @@ class ChatTestViewController: JSQMessagesViewController {
         // 2. We can use the observe method to listen for new
         // messages being written to the Firebase DB
         newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
+            
             // 3
             let messageData = snapshot.value as! Dictionary<String, String>
             if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
                 // 4
                 self.addMessage(withId: id, name: name, text: text)
                 
+                self.stopActivityIndicator()
                 // 5
                 self.finishReceivingMessage()
             }
@@ -192,13 +247,23 @@ class ChatTestViewController: JSQMessagesViewController {
                     if photoURL.hasPrefix("gs://") {
                         self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: nil)
                     }
+                    self.stopActivityIndicator()
                 }
             }
                 
             else {
-                print("Error! Could not decode message data")
+                self.showAlert(alertMsg: "Could not get data: check your network")
             }
         })
+    }
+
+    // MARK: stop ActivityIndicator
+    func stopActivityIndicator() {
+        DispatchQueue.main.async {
+            if self.activityIndicator.isAnimating {
+                self.activityIndicator.stopAnimating()
+            }
+        }
     }
     
     // MARK: Photo Module!!!
@@ -301,6 +366,8 @@ class ChatTestViewController: JSQMessagesViewController {
             "text": text!,
             ]
         
+        // activityIndicator is not instantiated? by code?
+        activityIndicator.startAnimating()
         itemRef.setValue(messageItem) // 3
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4

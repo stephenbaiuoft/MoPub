@@ -27,7 +27,7 @@ class HostEventViewController: UIViewController {
     @IBOutlet weak var eventDescription: UITextView!
     @IBOutlet weak var hostButton: UIButton!
     
-    
+    var activityIndicator: UIActivityIndicatorView!
     // MARK: FireBase properties
     // lazy ==> channelRef is instantiated ONLY when this property is accessed
     var user: User? = nil
@@ -48,6 +48,18 @@ class HostEventViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
+        // MARK: activityIndicator Set up
+        activityIndicator = UIActivityIndicatorView.init()
+        
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        activityIndicator.centerXAnchor.constraint(equalTo: mapView!.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: mapView!.centerYAnchor).isActive = true
+        
+        
         // textField
         eventTitle.delegate = self
         partySize.delegate = self
@@ -186,7 +198,24 @@ extension HostEventViewController : CLLocationManagerDelegate {
 
 // Handling drop in pin
 extension HostEventViewController: HandleMapSearch {
+    
+    func startActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+    }
+    
+    func stopActivityIndicator() {
+        DispatchQueue.main.async {
+            if self.activityIndicator.isAnimating {
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
+    
     func dropPinZoomIn(placemark:MKPlacemark){
+        startActivityIndicator()
+        
         // cache the pin
         selectedPin = placemark
         // clear existing pins
@@ -200,6 +229,8 @@ extension HostEventViewController: HandleMapSearch {
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
+        
+        stopActivityIndicator()
         
     }
     

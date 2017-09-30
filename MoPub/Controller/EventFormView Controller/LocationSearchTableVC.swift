@@ -13,12 +13,16 @@ class LocationSearchTableVC: UITableViewController {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     var handleMapSearchDelegate:HandleMapSearch? = nil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
 
+
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return matchingItems.count
@@ -71,17 +75,38 @@ class LocationSearchTableVC: UITableViewController {
 
 extension LocationSearchTableVC : UISearchResultsUpdating {
     
+    func showAlert(alertMsg: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: alertMsg, message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }
+        
+        if (searchBarText.characters.count == 0) { return }
+        
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBarText
         request.region = mapView.region
+        
+        
+        
         let search = MKLocalSearch(request: request)
-        search.start { response, _ in
+      
+        search.start { response, error in
+            if let error = error {
+                self.showAlert(alertMsg: "Failed to Search Location: Check Network")
+            }
+            
             guard let response = response else {
                 return
             }
+            
             self.matchingItems = response.mapItems
             self.tableView.reloadData()
         }

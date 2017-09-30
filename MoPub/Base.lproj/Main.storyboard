@@ -29,7 +29,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYE-1V-fr0">
                                 <rect key="frame" x="20" y="587" width="335" height="50"/>
-                                <state key="normal" title="Login Asynchronously"/>
+                                <state key="normal" title="Login Anonymously"/>
                                 <connections>
                                     <action selector="logInAsync:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tPt-KJ-Eji"/>
                                 </connections>
@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLt-N1-Npy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="417"/>
+            <point key="canvasLocation" x="2102" y="241"/>
         </scene>
         <!--NearBy-->
         <scene sceneID="9mB-9q-lXw">
