@@ -1,3 +1,18 @@
+Addressing the Review:
+
+Question 1: I'm having a hard time testing this project. Because it seems the events set up previously might be seen by others. I have set up a few near the same location, but if I log out and log back in again, those events are gone.
+
+Ans: the software current only supports 1 event at 1 location only, duplicates events are not displayed, but can be seen in the database
+
+Q2: removing an event:
+This app does not support removing event for now, just like the OnTheMap, where you cannot remove your own data
+
+Q3: offline mode
+Firebase supports offline message storage and updates/synchronizes with Server the moment internet is available. So I am displaying a network loss connection warning for now. 
+
+
+
+
 App Functionality
 1. This is a hosting event application, where anyone can log in anonymously and host their event
 
